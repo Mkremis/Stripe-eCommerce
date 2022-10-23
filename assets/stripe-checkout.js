@@ -8,14 +8,17 @@ $form.addEventListener("submit", (e) => {
   });
 });
 function checkout(STRIPE_KEYS) {
-  console.log(STRIPE_KEYS);
   const $tacos = document.getElementById("tacos"),
     $template = document.getElementById("taco-template").content,
     $fragment = document.createDocumentFragment(),
     fetchOptions = {
       headers: { Authorization: `Bearer ${STRIPE_KEYS.secret}` },
     },
-    moneyFormat = (num) => `$${num.slice(0, -2)},${num.slice(-2)}`;
+    moneyFormat = (num) => `$${num.slice(0, -2)},${num.slice(-2)}`,
+    $loader = document.createElement("img");
+  $loader.src = "./assets/loader.svg";
+  $loader.classList.add("loader");
+  document.querySelector("main").appendChild($loader);
 
   let products, prices;
 
@@ -49,6 +52,7 @@ function checkout(STRIPE_KEYS) {
         $fragment.appendChild($clone);
       });
       $tacos.appendChild($fragment);
+      $loader.style.display = "none";
     })
     .catch((err) => {
       console.log(err);
