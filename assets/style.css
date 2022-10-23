@@ -9,7 +9,7 @@ html {
   box-sizing: inherit;
 }
 header {
-  background-color: crimson;
+  background-color: #dc143c;
   color: chartreuse;
   margin-bottom: 1rem;
   display: flex;
@@ -31,7 +31,14 @@ header {
   flex: 1 1 200px;
   margin: 1rem;
 }
-
+.loader {
+  width: 100px;
+  height: auto;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(25%, 50%);
+}
 .taco {
   background-color: crimson;
   color: chartreuse;
