@@ -2,7 +2,7 @@ const $form = document.getElementById("keys");
 $form.addEventListener("submit", (e) => {
   e.preventDefault();
 
-  checkout(new FormData(e.target));
+  checkout(new FormData($form));
 });
 function checkout(STRIPE_KEYS) {
   const $tacos = document.getElementById("tacos"),
